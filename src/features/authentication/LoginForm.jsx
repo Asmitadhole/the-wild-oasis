@@ -27,7 +27,7 @@ function LoginForm() {
   }
 
   return (
-    <section className="bg-white p-10 w-[35vw] text-center">
+    <section className="p-10 w-[35vw] text-center">
       <Form onSubmit={handleSubmit}>
         <FormRow label="Email address">
           <Input

@@ -10,6 +10,7 @@ const StyledAppLayout = styled.div`
   height: 100vh;
   grid-template-columns: 26rem 1fr;
   grid-template-rows: auto 1fr;
+  background-color: var(--color-grey-0);
   gap: 2.4rem;
 `;
 

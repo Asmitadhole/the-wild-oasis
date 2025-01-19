@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import "./App.css";
 import GlobalStyles from "../src/styles/GlobalStyles";
 import Dashboard from "../src/pages/Dashboard";
 import Cabins from "../src/pages/Cabins";
@@ -70,7 +69,7 @@ function App() {
               fontSize: "10px",
               maxWidth: "500px",
               padding: "10px 16px",
-              background: "var(--color-grey-0)",
+              background: "var(--color-grey-100)",
               color: "var(--color-grey-700)",
             },
           }}
