@@ -11,7 +11,7 @@ import FormRow from "../../ui/FormRow";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import useCreateCabin from "./useCreateCabin";
-import useEditCabin from "./useEditCAbin";
+import useEditCabin from "./useEditCabin";
 
 const FormRow2 = styled.div`
   display: grid;
