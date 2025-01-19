@@ -7,7 +7,8 @@ const DarkModeContext = createContext();
 function DarkModeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useLocalStorageState(false, "isDarkMode");
 
-  useEffect(function () {
+  useEffect(() => {
+    // Apply the appropriate theme class
     if (isDarkMode) {
       document.documentElement.classList.add("dark-mode");
       document.documentElement.classList.remove("light-mode");
@@ -15,10 +16,16 @@ function DarkModeProvider({ children }) {
       document.documentElement.classList.add("light-mode");
       document.documentElement.classList.remove("dark-mode");
     }
-  });
+
+    // Optional: Cleanup function
+    return () => {
+      document.documentElement.classList.remove("dark-mode");
+      document.documentElement.classList.remove("light-mode");
+    };
+  }, [isDarkMode]); // Dependency array to watch `isDarkMode`
 
   function toggleDarkMode() {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prevMode) => !prevMode); // Use functional update for safety
   }
 
   return (
@@ -32,17 +39,14 @@ function useDarkMode() {
   const context = useContext(DarkModeContext);
 
   if (context === undefined) {
-    throw new Error("DarkModeContext must be used within a DarkModeProvider");
+    throw new Error("useDarkMode must be used within a DarkModeProvider");
   }
+
   return context;
 }
 
-DarkModeContext.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
 DarkModeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired, // Validate children prop
 };
 
 export { DarkModeProvider, useDarkMode };
